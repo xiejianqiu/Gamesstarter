@@ -1,0 +1,13 @@
+﻿<Window x:Class="Gamesstarter.ChannelLoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gamesstarter"
+        mc:Ignorable="d"
+        Title="ChannelLoginWindow" Width="590" Height="480" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+    <Grid>
+        <WebBrowser x:Name="WBroswer" HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+
+    </Grid>
+</Window>
