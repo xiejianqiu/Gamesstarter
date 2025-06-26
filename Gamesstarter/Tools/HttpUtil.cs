@@ -9,6 +9,8 @@ using Tools;
 using System.Reflection.Metadata;
 using System.IO;
 using System.Security.Cryptography;
+using System.Windows;
+
 namespace Gamesstarter
 {
 
@@ -110,6 +112,12 @@ namespace Gamesstarter
                 {
                     File.Delete((string)savePath);
                 }
+                var result = MessageBox.Show("下载失败，请尝试重启");
+                if (result == MessageBoxResult.OK)
+                {
+                    CommonTools.Exit();
+                }
+
             }
             finally
             {

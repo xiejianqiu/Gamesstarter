@@ -5,13 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gamesstarter"
         mc:Ignorable="d"
-        Title="凡人修仙" AllowsTransparency="true"  WindowStyle="None" Height="150" Width="400" MinWidth="400" MaxWidth="400" MaxHeight="150" MinHeight="150" ShowInTaskbar="False" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+        Title="凡人修仙" AllowsTransparency="true"  WindowStyle="None" Height="218" Width="586" MinWidth="586" MaxWidth="586" MaxHeight="218.8" MinHeight="218" ShowInTaskbar="False" ScrollViewer.VerticalScrollBarVisibility="Hidden">
     <Grid>
+        <Grid.Background>
+            <ImageBrush>
+                <ImageBrush.ImageSource>/background.png</ImageBrush.ImageSource>
+            </ImageBrush>
+        </Grid.Background>
+        <Grid.OpacityMask>
+            <ImageBrush ImageSource="/background.png" TileMode="None"/>
+        </Grid.OpacityMask>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="21*"/>
             <ColumnDefinition Width="19*"/>
         </Grid.ColumnDefinitions>
-        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" Height="10" RenderTransformOrigin="0.204,-0.231" HorizontalContentAlignment="Center" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Value="1" BorderBrush="#FF0CFF48" d:IsLocked="True">
+        <ProgressBar x:Name="ProgressBar" RenderTransformOrigin="0.204,-0.231" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Value="1" BorderBrush="#FF0CFF48" Margin="61,169,59,35">
             <ProgressBar.Background>
                 <SolidColorBrush Color="Black" Opacity="0.5"/>
             </ProgressBar.Background>
@@ -19,12 +27,10 @@
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-0.644"/>
-                    <TranslateTransform X="-0.073" Y="1.265"/>
                 </TransformGroup>
             </ProgressBar.RenderTransform>
         </ProgressBar>
-        <Label x:Name="TipLab" Content="Label" Margin="10,115,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Padding="0,5,0,5" d:IsLocked="True"/>
+        <Label x:Name="TipLab" Content="Label" Margin="107,183,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Padding="0,5,0,5" Background="{x:Null}" Foreground="#FF00FF4A"/>
 
     </Grid>
 </Window>
