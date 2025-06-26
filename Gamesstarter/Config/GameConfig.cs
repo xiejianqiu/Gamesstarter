@@ -20,6 +20,7 @@ namespace Gamesstarter
     }
     public class GameConfig
     {
+        public const string CHANNEL_LOGIN_URL = "http://frxx.52gg.com/client";
         /// <summary>
         /// 解压完是否删除压缩包
         /// </summary>

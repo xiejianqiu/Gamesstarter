@@ -25,7 +25,7 @@ namespace Gamesstarter
         {
             InitializeComponent();
             this.WBroswer.Navigated += OnWebBrowserNavigated;
-            LoadWebPage("http://frxx.52gg.com/client");
+            LoadWebPage(GameConfig.CHANNEL_LOGIN_URL);
         }
 
         private void OnWebBrowserNavigated(object sender, NavigationEventArgs avg)
