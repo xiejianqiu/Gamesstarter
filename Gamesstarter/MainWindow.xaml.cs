@@ -13,6 +13,7 @@ namespace Gamesstarter
     {
         private int toProgress = 0;
         private string tip = string.Empty;
+        private bool CanOpenLoginWindow = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -35,13 +36,18 @@ namespace Gamesstarter
             };
             Index.Inst.DownloadProgressEvent += OnDLGameAppProgress;
             Index.Inst.StepChangeEvent += OnStepChangeEvent;
+            Index.Inst.OpenChannelLoginWindow += OpenChannelLoginWindow;
             Index.Inst.Start();
+        }
+
+        private void OpenChannelLoginWindow()
+        {
+            CanOpenLoginWindow = true;
         }
 
         private void OnStepChangeEvent(string msg)
         {
             this.tip = msg;
-            UpdateTipLab(this.tip);
         }
         private void UpdateTipLab(string msg)
         {
@@ -61,6 +67,16 @@ namespace Gamesstarter
                 this.ProgressBar.Value += 1 * spd;
                 this.UpdateTipLab(string.Format(tip, this.ProgressBar.Value));
 
+            }
+            else
+            {
+                UpdateTipLab(this.tip);
+            }
+
+            if (CanOpenLoginWindow)
+            {
+                CommonTools.OpenCHannelWindow<ChannelLoginWindow>();
+                CanOpenLoginWindow = false;
             }
         }
         private void OnDLGameAppProgress(int progress)

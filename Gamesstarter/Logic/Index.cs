@@ -27,6 +27,7 @@ namespace Gamesstarter
         }
         public event Action<int> DownloadProgressEvent;
         public event Action<string> StepChangeEvent;
+        public event Action OpenChannelLoginWindow;
         void UpdateProgerss(int progress)
         {
             DownloadProgressEvent?.Invoke(progress);
@@ -158,7 +159,7 @@ namespace Gamesstarter
         {
             this.UpdateTips(TIPS.START_GAME);
             UpdateProgerss(100);
-            CommonTools.OpenCHannelWindow<ChannelLoginWindow>();
+            OpenChannelLoginWindow?.Invoke();
         }
         bool IsNewAppVersion(string oldVersion, string newVersion)
         {
