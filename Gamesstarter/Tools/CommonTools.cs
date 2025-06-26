@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Gamesstarter;
+using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Media3D;
+using System.Windows;
 
 namespace Tools
 {
@@ -42,6 +39,26 @@ namespace Tools
             if (Directory.Exists(path))
                 Directory.Delete(path, true);
             Directory.CreateDirectory(path);
+        }
+        public static void OpenCHannelWindow<T>() where T:Window
+        {
+            try
+            {
+                Window newWindow = Activator.CreateInstance<T>() as Window;
+                newWindow.Show();
+                foreach (Window window in App.Current.Windows)
+                {
+                    if (window != newWindow)
+                    {
+                        window.Close();
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                LogTool.Instance.Error($"OpenCHannelWindow {e.ToString()}");
+            }
         }
     }
 }

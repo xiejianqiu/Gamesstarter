@@ -132,7 +132,6 @@ namespace Gamesstarter
         {
             this.UpdateTips(TIPS.IN_UNZIP);
             Installer.UnZip(zipFile, gamePath, OnUnzipProgresssHandler, OnUnzipAppResult);
-            //ShowGameServerUI();
         }
         void OnUnzipProgresssHandler(float progress)
         {
@@ -159,8 +158,7 @@ namespace Gamesstarter
         {
             this.UpdateTips(TIPS.START_GAME);
             UpdateProgerss(100);
-            CommonTools.RunExe(GameConfig.GameExe, "platform=52gg server_num=889 uid=52gg_630690");
-            CommonTools.Exit();
+            CommonTools.OpenCHannelWindow<ChannelLoginWindow>();
         }
         bool IsNewAppVersion(string oldVersion, string newVersion)
         {
