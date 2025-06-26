@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -27,14 +26,20 @@ namespace Gamesstarter
             }
         }
         public event Action<int> DownloadProgressEvent;
+        public event Action<string> StepChangeEvent;
         void UpdateProgerss(int progress)
         {
             DownloadProgressEvent?.Invoke(progress);
         }
+        void UpdateTips(string msg)
+        {
+            StepChangeEvent?.Invoke(msg);
+        }
         public void Start()
         {
             UpdateProgerss(GameConfig.ProgressOfStartUp);
-            HttpUtil.DownloadFile(GameConfig.newAppVerUrl,OnGetNewAppVerInfo);
+            this.UpdateTips(TIPS.GET_VERSION_INFO);
+            HttpUtil.DownloadFile(GameConfig.newAppVerUrl, OnGetNewAppVerInfo);
         }
 
         private void OnGetNewAppVerInfo(bool result, string jsonStr)
@@ -89,6 +94,7 @@ namespace Gamesstarter
                 UnzipNewAppVers(savePath, GameConfig.GameSavePath);
                 return;
             }
+            this.UpdateTips(TIPS.IN_DOWNLOAD_ZIPFILE);
             //CommonTools.DelAndCreate(GameConfig.GameRoot);
             HttpUtil.DownBigFile(newAppVer.url, savePath, newAppVer.md5, OnNewGameVerDL, OnDLGameZipProgress);
         }
@@ -124,6 +130,7 @@ namespace Gamesstarter
         /// <param name="gamePath"></param>
         void UnzipNewAppVers(string zipFile, string gamePath)
         {
+            this.UpdateTips(TIPS.IN_UNZIP);
             Installer.UnZip(zipFile, gamePath, OnUnzipProgresssHandler, OnUnzipAppResult);
             //ShowGameServerUI();
         }
@@ -150,6 +157,8 @@ namespace Gamesstarter
         /// </summary>
         void ShowGameServerUI()
         {
+            this.UpdateTips(TIPS.START_GAME);
+            UpdateProgerss(100);
             CommonTools.RunExe(GameConfig.GameExe, "platform=52gg server_num=889 uid=52gg_630690");
             CommonTools.Exit();
         }

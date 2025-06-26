@@ -17,6 +17,7 @@ namespace Gamesstarter
     public partial class MainWindow : Window
     {
         private int toProgress = 0;
+        private string tip = string.Empty;
         public MainWindow()
         {
             InitializeComponent();
@@ -38,8 +39,20 @@ namespace Gamesstarter
                 timer.Start();
             };
             Index.Inst.DownloadProgressEvent += OnDLGameAppProgress;
+            Index.Inst.StepChangeEvent += OnStepChangeEvent;
             Index.Inst.Start();
         }
+
+        private void OnStepChangeEvent(string msg)
+        {
+            this.tip = msg;
+            UpdateTipLab(this.tip);
+        }
+        private void UpdateTipLab(string msg)
+        {
+            this.TipLab.Content =  msg;
+        }
+
         private void Init()
         {
             this.ProgressBar.Value = 0;
@@ -51,6 +64,7 @@ namespace Gamesstarter
             if (curProgress < toProgress)
             {
                 this.ProgressBar.Value += 1 * spd;
+                this.UpdateTipLab(string.Format(tip, this.ProgressBar.Value));
 
             }
         }
