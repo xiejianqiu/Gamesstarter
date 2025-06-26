@@ -1,0 +1,29 @@
+﻿<Window x:Class="Gamesstarter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gamesstarter"
+        mc:Ignorable="d"
+        Title="凡人修仙" AllowsTransparency="true"  WindowStyle="None" Height="150" Width="400" MinWidth="400" MaxWidth="400" MaxHeight="150" MinHeight="150" ShowInTaskbar="False" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" Height="10" RenderTransformOrigin="0.204,-0.231" HorizontalContentAlignment="Center" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Value="1" BorderBrush="#FF0CFF48">
+            <ProgressBar.Background>
+                <SolidColorBrush Color="Black" Opacity="0.5"/>
+            </ProgressBar.Background>
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.644"/>
+                    <TranslateTransform X="-0.073" Y="1.265"/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+
+    </Grid>
+</Window>
