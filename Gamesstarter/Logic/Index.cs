@@ -90,6 +90,10 @@ namespace Gamesstarter
             
             var savePath = $"{newAppVer.version}{newAppVer.md5}_{newAppVer.size}.zip";
             savePath = Path.Combine(GameConfig.GameRoot,savePath);
+            if (!Directory.Exists(GameConfig.GameRoot))
+            {
+                Directory.CreateDirectory(GameConfig.GameRoot);
+            }
             if (File.Exists(savePath))
             {
                 UnzipNewAppVers(savePath, GameConfig.GameSavePath);

@@ -26,10 +26,10 @@ namespace Gamesstarter
         /// </summary>
         public static bool DelZipAfterUnzip = true;
         public static string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "newAppInfo.json");
-        public static string GameRoot = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Frxx");
-        public static string GameSavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Frxx/Win");
-        public static string GameExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Frxx/Win/Frxx.exe");
-        public static string LocaGameAppInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Frxx/Win/AppInfo.json");
+        public static string GameRoot = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx");
+        public static string GameSavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win");
+        public static string GameExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win/Frxx.exe");
+        public static string LocaGameAppInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win/AppInfo.json");
         public const string newAppVerUrl = "http://taigu-360-self-cdn.cyygame.cn/game/tgsw3/qq/packages/qk/newAppInfo.json";
         public const int ProgressOfStartUp = 10;
         public const int ProgressOfDLZip = 60;
