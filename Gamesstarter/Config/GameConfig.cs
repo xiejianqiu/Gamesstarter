@@ -41,12 +41,12 @@ namespace Gamesstarter
         public const string CHANNEL_LOGIN_URL_shunwang = "https://gamesite.swjoy.com/embed/5852";
         public const string CHANNEL_LOGIN_URL_4yx = "http://www.youxilifang.com/min/frxx";
 
-        public const string CHANNEL_LOGIN_URL_jiuhou = "";
+        public const string CHANNEL_LOGIN_URL_jiuhou = "http://api.9hou.com/api/client/?gid=1119";
         public const string CHANNEL_LOGIN_URL_flash = "";
         public const string CHANNEL_LOGIN_URL_aqy = "";
         public static string CHANNEL_LOGIN_URL{
             get {
-                return CHANNEL_LOGIN_URL_37tang;
+                return CHANNEL_LOGIN_URL_jiuhou;
             }
         }
         /// <summary>
