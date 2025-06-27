@@ -26,14 +26,13 @@ namespace Gamesstarter
                         return;
                     DragMove();
                 };
-
-                DispatcherTimer timer = new DispatcherTimer
-                {
-                    Interval = new TimeSpan(0, 0, 0, 0, 100)
-                };
-                timer.Tick += Update;
-                timer.Start();
             };
+            DispatcherTimer timer = new DispatcherTimer
+            {
+                Interval = new TimeSpan(0, 0, 0, 0, 100)
+            };
+            timer.Tick += Update;
+            timer.Start();
             Index.Inst.DownloadProgressEvent += OnDLGameAppProgress;
             Index.Inst.StepChangeEvent += OnStepChangeEvent;
             Index.Inst.OpenChannelLoginWindow += OpenChannelLoginWindow;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,7 @@ namespace Gamesstarter
     {
         public ChannelLoginWindow()
         {
+            LogTool.Instance.Info($"ChannelLoginWindow");
             InitializeComponent();
             this.WBroswer.Navigated += OnWebBrowserNavigated;
             LoadWebPage(GameConfig.CHANNEL_LOGIN_URL);
@@ -52,6 +54,7 @@ namespace Gamesstarter
                         dictionary[array3[0]] = array3[1];
                     }
                 }
+                LogTool.Instance.Info($"OnWebBrowserNavigated: {avg.Uri}");
                 if (dictionary.ContainsKey("server_num") && dictionary.ContainsKey("uid") && dictionary.ContainsKey("platform"))
                 {
                     StringBuilder builder = new StringBuilder();

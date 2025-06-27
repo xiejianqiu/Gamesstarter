@@ -53,8 +53,8 @@ namespace Gamesstarter
                                     var content = new byte[zipArchiveEntry.Length];
                                     zipArchiveEntry.Open().Read(content, 0, content.Length);
 
-                                    if (File.Exists(filePath) && content.Length == new FileInfo(filePath).Length)
-                                        continue; //跳过相同的文件，否则覆盖更新
+                                    //if (File.Exists(filePath) && content.Length == new FileInfo(filePath).Length)
+                                    //    continue; //跳过相同的文件，否则覆盖更新
 
                                     var sameDirectoryNameFilePath = new DirectoryInfo(filePath);
                                     if (sameDirectoryNameFilePath.Exists)

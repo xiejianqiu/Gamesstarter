@@ -34,7 +34,9 @@ namespace Tools
             if (!Directory.Exists(directoryName))
                 Directory.CreateDirectory(directoryName ?? throw new InvalidOperationException());
             if (File.Exists(logFile))
-                return;
+            {
+                File.Delete(logFile);
+            }
             File.Create(logFile).Close();
         }
 

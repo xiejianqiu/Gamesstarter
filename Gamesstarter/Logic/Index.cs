@@ -40,11 +40,13 @@ namespace Gamesstarter
         {
             UpdateProgerss(GameConfig.ProgressOfStartUp);
             this.UpdateTips(TIPS.GET_VERSION_INFO);
+            LogTool.Instance.Info("HttpUtil.DownloadFile");
             HttpUtil.DownloadFile(GameConfig.newAppVerUrl, OnGetNewAppVerInfo);
         }
 
         private void OnGetNewAppVerInfo(bool result, string jsonStr)
         {
+            LogTool.Instance.Info("OnGetNewAppVerInfo");
             try
             {
                 if (!result)
@@ -57,7 +59,7 @@ namespace Gamesstarter
                 if (File.Exists(GameConfig.LocaGameAppInfo))
                 {
                     var localAppVer = JsonConvert.DeserializeObject<Localver>(File.ReadAllText(GameConfig.LocaGameAppInfo, Encoding.UTF8));
-                    if (IsNewAppVersion(newAppVer.version, localAppVer.version))
+                    if (IsNewAppVersion(localAppVer.version, newAppVer.version))
                     {
                         NeedUpdate = true;
                     }
@@ -87,7 +89,7 @@ namespace Gamesstarter
         /// </summary>
         void StartGameUpdate(AppVer newAppVer)
         {
-            
+            LogTool.Instance.Info("StartGameUpdate");
             var savePath = $"{newAppVer.version}{newAppVer.md5}_{newAppVer.size}.zip";
             savePath = Path.Combine(GameConfig.GameRoot,savePath);
             if (!Directory.Exists(GameConfig.GameRoot))
@@ -120,6 +122,7 @@ namespace Gamesstarter
         /// <param name="savePath"></param>
         void OnNewGameVerDL(bool result, string savePath)
         {
+            LogTool.Instance.Info($"OnNewGameVerDL {result}");
             if (!result)
             {
                 LogTool.Instance.Error("OnNewGameVerDL Fail");
@@ -135,7 +138,12 @@ namespace Gamesstarter
         /// <param name="gamePath"></param>
         void UnzipNewAppVers(string zipFile, string gamePath)
         {
+            LogTool.Instance.Info($"UnzipNewAppVers {zipFile}");
             this.UpdateTips(TIPS.IN_UNZIP);
+            if (Directory.Exists(gamePath))
+            {
+                Directory.Delete(gamePath, true);
+            }
             Installer.UnZip(zipFile, gamePath, OnUnzipProgresssHandler, OnUnzipAppResult);
         }
         void OnUnzipProgresssHandler(float progress)
@@ -144,6 +152,7 @@ namespace Gamesstarter
         }
         void OnUnzipAppResult(bool result, string zipFile)
         {
+            LogTool.Instance.Info($"OnUnzipAppResult {result}");
             if (!result)
             {
                 LogTool.Instance.Error("OnUnzipAppResult Fail");
@@ -161,6 +170,7 @@ namespace Gamesstarter
         /// </summary>
         void ShowGameServerUI()
         {
+            LogTool.Instance.Info($"ShowGameServerUI");
             this.UpdateTips(TIPS.START_GAME);
             UpdateProgerss(100);
             OpenChannelLoginWindow?.Invoke();
