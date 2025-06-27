@@ -65,20 +65,27 @@ namespace Tools
         /// </summary>
         public static void CreateAppShortCut()
         {
-            if (File.Exists(GameConfig.GameExeLnkPath))
-                File.Decrypt(GameConfig.GameExeLnkPath);
-            string processName = Process.GetCurrentProcess().ProcessName + ".exe";
-            string linkName = GameConfig.AppName;
-            string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            using (StreamWriter writer = new StreamWriter(deskDir + "\\" + linkName + ".url"))
+            try
             {
-                string exepath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, processName);
-
-                writer.WriteLine("[InternetShortcut]");
-                writer.WriteLine("URL=file:///" + exepath);
-                writer.WriteLine("IconIndex=0");
-                string icon = exepath.Replace('\\', '/');
-                writer.WriteLine("IconFile=" + icon);
+                if (File.Exists(GameConfig.GameExeLnkPath))
+                    File.Delete(GameConfig.GameExeLnkPath);
+                string processName = Process.GetCurrentProcess().ProcessName + ".exe";
+                string linkName = GameConfig.AppName;
+                string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+                using (StreamWriter writer = new StreamWriter(deskDir + "\\" + linkName + ".url"))
+                {
+                    string exepath = Path.Combine(Environment.CurrentDirectory, processName);
+                    LogTool.Instance.Info($"CreateAppShortCut ExePath:{exepath}");
+                    writer.WriteLine("[InternetShortcut]");
+                    writer.WriteLine("URL=file:///" + exepath);
+                    writer.WriteLine("IconIndex=0");
+                    string icon = exepath.Replace('\\', '/');
+                    writer.WriteLine("IconFile=" + icon);
+                }
+            }
+            catch (Exception e)
+            {
+                LogTool.Instance.Error($"CreateAppShortCut {e.ToString()}");
             }
         }
     }

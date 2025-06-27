@@ -24,7 +24,7 @@ namespace Gamesstarter
         public const string CHANNEL_LOGIN_URL_KU25 = "http://www.ku25.com/client/frxx";
         public static string CHANNEL_LOGIN_URL{
             get {
-                return CHANNEL_LOGIN_URL_52gg;
+                return CHANNEL_LOGIN_URL_KU25;
             }
         }
         /// <summary>

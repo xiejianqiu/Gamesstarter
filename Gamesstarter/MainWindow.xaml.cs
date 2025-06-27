@@ -38,6 +38,7 @@ namespace Gamesstarter
             Index.Inst.OpenChannelLoginWindow += OpenChannelLoginWindow;
             Index.Inst.Start();
             CommonTools.CreateAppShortCut();
+            LogTool.Instance.Info("MainWindow Start");
         }
 
         private void OpenChannelLoginWindow()
