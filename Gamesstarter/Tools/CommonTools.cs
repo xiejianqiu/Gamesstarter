@@ -60,5 +60,26 @@ namespace Tools
                 LogTool.Instance.Error($"OpenCHannelWindow {e.ToString()}");
             }
         }
+        /// <summary>
+        /// 在创建app的快捷方式
+        /// </summary>
+        public static void CreateAppShortCut()
+        {
+            if (File.Exists(GameConfig.GameExeLnkPath))
+                File.Decrypt(GameConfig.GameExeLnkPath);
+            string processName = Process.GetCurrentProcess().ProcessName + ".exe";
+            string linkName = GameConfig.AppName;
+            string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            using (StreamWriter writer = new StreamWriter(deskDir + "\\" + linkName + ".url"))
+            {
+                string exepath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, processName);
+
+                writer.WriteLine("[InternetShortcut]");
+                writer.WriteLine("URL=file:///" + exepath);
+                writer.WriteLine("IconIndex=0");
+                string icon = exepath.Replace('\\', '/');
+                writer.WriteLine("IconFile=" + icon);
+            }
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace Gamesstarter
             Index.Inst.StepChangeEvent += OnStepChangeEvent;
             Index.Inst.OpenChannelLoginWindow += OpenChannelLoginWindow;
             Index.Inst.Start();
+            CommonTools.CreateAppShortCut();
         }
 
         private void OpenChannelLoginWindow()

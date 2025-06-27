@@ -24,17 +24,19 @@ namespace Gamesstarter
         public const string CHANNEL_LOGIN_URL_KU25 = "http://www.ku25.com/client/frxx";
         public static string CHANNEL_LOGIN_URL{
             get {
-                return CHANNEL_LOGIN_URL_KU25;
+                return CHANNEL_LOGIN_URL_52gg;
             }
         }
         /// <summary>
         /// 解压完是否删除压缩包
         /// </summary>
         public static bool DelZipAfterUnzip = true;
+        public static string AppName = "凡人修仙";
         public static string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "newAppInfo.json");
         public static string GameRoot = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx");
         public static string GameSavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win");
         public static string GameExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win/Frxx.exe");
+        public static string GameExeLnkPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), AppName + ".lnk");
         public static string LocaGameAppInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win/AppInfo.json");
         public const string newAppVerUrl = "http://taigu-360-self-cdn.cyygame.cn/game/tgsw3/qq/packages/qk/newAppInfo.json";
         public const int ProgressOfStartUp = 10;
