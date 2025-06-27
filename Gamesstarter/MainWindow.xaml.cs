@@ -83,5 +83,10 @@ namespace Gamesstarter
         {
             this.toProgress = progress;
         }
+
+        private void OnCloseBtnClicked(object sender, RoutedEventArgs e)
+        {
+            CommonTools.Exit();
+        }
     }
 }

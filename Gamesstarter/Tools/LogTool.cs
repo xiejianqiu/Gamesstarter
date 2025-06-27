@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gamesstarter;
+using System;
 using System.IO;
 using System.Text;
 
@@ -13,7 +14,7 @@ namespace Tools
         // ReSharper disable once MemberCanBePrivate.Global
         public LogTool(string logName)
         {
-            Init(AppDomain.CurrentDomain.BaseDirectory + "/log/" + logName + ".txt");
+            Init(GameConfig.GameRoot + "/log/" + logName + ".txt");
         }
 
         public static LogTool Instance
