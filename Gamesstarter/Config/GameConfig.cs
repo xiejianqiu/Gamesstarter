@@ -46,7 +46,7 @@ namespace Gamesstarter
         public const string CHANNEL_LOGIN_URL_aqy = "";
         public static string CHANNEL_LOGIN_URL{
             get {
-                return CHANNEL_LOGIN_URL_dy_2;
+                return CHANNEL_LOGIN_URL_45yx;
             }
         }
         /// <summary>
