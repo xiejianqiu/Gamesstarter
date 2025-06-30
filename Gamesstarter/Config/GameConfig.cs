@@ -34,7 +34,7 @@ namespace Gamesstarter
         public const string CHANNEL_LOGIN_URL_45yx = "https://www.45yx.com/client/login/1254?w=590&h=480&t=2";
 
         public const string CHANNEL_LOGIN_URL_dy_1 = "http://play.no1yx.com/wd/wd-frxx/index.htm";
-        public const string CHANNEL_LOGIN_URL_dy_2 = "http://www.30756.cn//client/common/index.php?";
+        public const string CHANNEL_LOGIN_URL_dy_2 = "http://www.30756.cn//client/common/index.php?gid=511";
 
         public const string CHANNEL_LOGIN_URL_8090 = "http://dlqxz.8090.com/frxx/login/index.php";
         public const string CHANNEL_LOGIN_URL_335wan = "https://web.28zhe.com/index/microgame/index?id=49";
@@ -46,7 +46,7 @@ namespace Gamesstarter
         public const string CHANNEL_LOGIN_URL_aqy = "";
         public static string CHANNEL_LOGIN_URL{
             get {
-                return CHANNEL_LOGIN_URL_jiuhou;
+                return CHANNEL_LOGIN_URL_dy_2;
             }
         }
         /// <summary>
