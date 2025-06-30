@@ -46,6 +46,8 @@ namespace Gamesstarter
         public const string LOGIN_URL = "";
 #elif FRXX_AQY
         public const string LOGIN_URL = "";
+#else
+        public const string LOGIN_URL = "";
 #endif
         public static string CHANNEL_LOGIN_URL
         {

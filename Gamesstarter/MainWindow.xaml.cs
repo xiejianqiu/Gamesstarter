@@ -39,7 +39,7 @@ namespace Gamesstarter
             Index.Inst.Start();
             //CommonTools.CreateAppShortCut();
             CommonTools.CreateDesktopShortcut();
-            LogTool.Instance.Info("MainWindow Start");
+            LogTool.Instance.Info($"MainWindow Start {GameConfig.CHANNEL_LOGIN_URL}");
         }
 
         private void OpenChannelLoginWindow()
