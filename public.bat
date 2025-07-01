@@ -8,9 +8,10 @@ SET MARCROS3=FRXX_45YX FRXX_DY1 FRXX_DY2 FRXX_8090 FRXX_335WAN
 SET MARCROS4=FRXX_JIUHOU
 SET MARCROS5=FRXX_SHUNGWANG FRXX_4YX FRXX_FLASH FRXX_AQY
 SET ALL_MACROS=%MARCROS1% %MARCROS2% %MARCROS3% %MARCROS4%
+REM SET ALL_MACROS=FRXX_KU25
 @ECHO OFF
 setlocal enabledelayedexpansion
-
+rem  /p:PublishTrimmed=true 裁剪不支持
 for %%a in (%ALL_MACROS%) do (
 	SET NEWNAME=%%a.exe
     SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%%a
@@ -18,5 +19,5 @@ for %%a in (%ALL_MACROS%) do (
 	CALL !EXE_PUBLICH!
 	RENAME %NEWEXE% !NEWNAME!
 )
-
 endlocal
+PAUSE
