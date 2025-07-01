@@ -1,119 +1,22 @@
 SET CUR_PATH=%CD%
 SET CLEANEXE=dotnet clean
 SET NEWEXE=%CUR_PATH%\publish\Gamesstarter.exe
-SET MACRO=FRXX_KU25
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-SET MACRO=FRXX_37TANG
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
 
-SET MACRO=FRXX_43U
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
+SET MARCROS1=FRXX_KU25 FRXX_37TANG FRXX_43U FRXX_1912YX FRXX_ZIXIA
+SET MARCROS2=FRXX_52GG FRXX_1171WAN FRXX_YXA9 FRXX_XINGDIE FRXX_YILING
+SET MARCROS3=FRXX_45YX FRXX_DY1 FRXX_DY2 FRXX_8090 FRXX_335WAN 
+SET MARCROS4=FRXX_JIUHOU
+SET MARCROS5=FRXX_SHUNGWANG FRXX_4YX FRXX_FLASH FRXX_AQY
+SET ALL_MACROS=%MARCROS1% %MARCROS2% %MARCROS3% %MARCROS4%
+@ECHO OFF
+setlocal enabledelayedexpansion
 
-SET MACRO=FRXX_1912YX
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
+for %%a in (%ALL_MACROS%) do (
+	SET NEWNAME=%%a.exe
+    SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%%a
+	ECHO !EXE_PUBLICH!
+	CALL !EXE_PUBLICH!
+	RENAME %NEWEXE% !NEWNAME!
+)
 
-SET MACRO=FRXX_ZIXIA
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_52GG
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_1171WAN
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_YXA9
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_XINGDIE
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_YILING
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_45YX
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_DY1
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_DY2
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_8090
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_335WAN
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_JIUHOU
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
-%CLEANEXE%
-
-SET MACRO=FRXX_SHUNGWANG
-SET NEWNAME=%MACRO%.exe
-SET EXE_PUBLICH=dotnet publish -c Release -r win-x64 -o ./publish /p:PublishSingleFile=true /p:DefineConstants=%MACRO%
-CALL %EXE_PUBLICH%
-RENAME %NEWEXE% %NEWNAME%
+endlocal
