@@ -95,16 +95,18 @@ namespace Tools
         /// </summary>
         static public void CreateDesktopShortcut()
         {
-            if (System.IO.File.Exists(GameConfig.GameExeLnkPath))
-                System.IO.File.Delete(GameConfig.GameExeLnkPath);
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             IShellLink link = (IShellLink)new ShellLink();
             string processName = Process.GetCurrentProcess().ProcessName + ".exe";
             string tarPath = Path.Combine(Environment.CurrentDirectory, processName);
+            if (Environment.CurrentDirectory == desktopPath)
+                return;
+            if (System.IO.File.Exists(GameConfig.GameExeLnkPath))
+                System.IO.File.Delete(GameConfig.GameExeLnkPath);
             link.SetDescription("点我进凡人修仙世界");
             link.SetPath(tarPath);
 
             IPersistFile file = (IPersistFile)link;
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             file.Save(Path.Combine(desktopPath, $"{GameConfig.AppName}.lnk"), false);
         }
     }
