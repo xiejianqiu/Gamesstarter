@@ -47,7 +47,7 @@ namespace Gamesstarter
 #elif FRXX_AQY
         public const string LOGIN_URL = "";
 #else
-        public const string LOGIN_URL = "";
+        public const string LOGIN_URL = "http://www.ku25.com/client/frxx";
 #endif
         public static string CHANNEL_LOGIN_URL
         {

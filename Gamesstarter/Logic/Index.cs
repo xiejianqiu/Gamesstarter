@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Windows;
+using TinyJson;
 using Tools;
 
 namespace Gamesstarter
@@ -55,10 +55,11 @@ namespace Gamesstarter
                     return;
                 }
                 bool NeedUpdate = false;
-                var newAppVer = JsonConvert.DeserializeObject<AppVer>(jsonStr);
+                var newAppVer = jsonStr.FromJson<AppVer>();
                 if (File.Exists(GameConfig.LocaGameAppInfo))
                 {
-                    var localAppVer = JsonConvert.DeserializeObject<Localver>(File.ReadAllText(GameConfig.LocaGameAppInfo, Encoding.UTF8));
+                    string jsonContent = File.ReadAllText(GameConfig.LocaGameAppInfo, Encoding.UTF8);
+                    var localAppVer = jsonContent.FromJson<Localver>();
                     if (IsNewAppVersion(localAppVer.version, newAppVer.version))
                     {
                         NeedUpdate = true;
