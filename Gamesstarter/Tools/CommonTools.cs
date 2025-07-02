@@ -95,14 +95,10 @@ namespace Tools
         /// </summary>
         static public void CreateDesktopShortcut()
         {
-            
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            //从桌面打开则不创建快捷方式
-            if (Environment.CurrentDirectory == desktopPath)
-                return;
             if (File.Exists(GameConfig.GameExeLnkPath))
             {
-                File.Delete(GameConfig.GameExeLnkPath);
+                LogTool.Instance.Info($"CreateDesktopShortcut 快捷方式已存在");
+                return;
             }
             string processName = Process.GetCurrentProcess().ProcessName + ".exe";
             string tarExePath = Path.Combine(Environment.CurrentDirectory, processName);
