@@ -95,13 +95,22 @@ namespace Tools
         /// </summary>
         static public void CreateDesktopShortcut()
         {
-            if (File.Exists(GameConfig.GameExeLnkPath))
-            {
-                LogTool.Instance.Info($"CreateDesktopShortcut 快捷方式已存在");
+            
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            //从桌面打开则不创建快捷方式
+            if (Environment.CurrentDirectory == desktopPath)
                 return;
-            }
             string processName = Process.GetCurrentProcess().ProcessName + ".exe";
             string tarExePath = Path.Combine(Environment.CurrentDirectory, processName);
+            if (!File.Exists(tarExePath))
+            {
+                LogTool.Instance.Info($"CreateDesktopShortcut 目标程序不存在，无法创建快捷方式 {tarExePath}");
+                return;
+            }
+            if (File.Exists(GameConfig.GameExeLnkPath))
+            {
+                File.Delete(GameConfig.GameExeLnkPath);
+            }
             IShellLink link = (IShellLink)new ShellLink();
             link.SetDescription("点我进凡人修仙世界");
             link.SetPath(tarExePath);
