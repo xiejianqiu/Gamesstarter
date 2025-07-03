@@ -15,7 +15,7 @@ namespace Gamesstarter
 #elif FRXX_1912YX
         public const string LOGIN_URL = "http://frxx.1912yx.com/client";
 #elif FRXX_ZIXIA
-        public const string LOGIN_URL = "https://apps.zixia.com/jlcqolhw/index.php";
+        public const string LOGIN_URL = "https://apps.zixia.com/frxx/index.php";
 #elif FRXX_52GG
         public const string LOGIN_URL = "http://frxx.52gg.com/client";
 #elif FRXX_1171WAN
