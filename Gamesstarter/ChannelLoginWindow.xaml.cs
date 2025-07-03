@@ -55,6 +55,16 @@ namespace Gamesstarter
                     }
                 }
                 LogTool.Instance.Info($"OnWebBrowserNavigated: {avg.Uri}");
+                if (dictionary.ContainsKey("guid") && dictionary.ContainsKey("server_idx"))
+                {
+                    dictionary["uid"] = dictionary["guid"];
+                    dictionary["server_num"] = dictionary["server_idx"];
+                }
+                else if (dictionary.ContainsKey("account") && dictionary.ContainsKey("sid"))
+                {
+                    dictionary["uid"] = dictionary["account"];
+                    dictionary["server_num"] = dictionary["sid"];
+                }
                 if (dictionary.ContainsKey("server_num") && dictionary.ContainsKey("uid") && dictionary.ContainsKey("platform"))
                 {
                     StringBuilder builder = new StringBuilder();
