@@ -18,7 +18,7 @@ namespace Gamesstarter
         public const string LOGIN_URL = "https://apps.zixia.com/frxx/index.php";
 #elif FRXX_52GG
         public const string LOGIN_URL = "http://frxx.52gg.com/client";
-#elif FRXX_1171WAN
+#elif FRXX_1771WAN
         public const string LOGIN_URL = "http://frxx.1771wan.com/client";
 #elif FRXX_YXA9
         public const string LOGIN_URL = "http://www.yxa9.com/client/frxx/index.php";
@@ -47,7 +47,8 @@ namespace Gamesstarter
 #elif FRXX_AQY
         public const string LOGIN_URL = "";
 #else
-        public const string LOGIN_URL = "http://www.ku25.com/client/frxx";
+        public const string LOGIN_URL = "https://gamesite.swjoy.com/embed/5852";
+
 #endif
         public static string CHANNEL_LOGIN_URL
         {
