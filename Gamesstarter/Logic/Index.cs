@@ -160,6 +160,11 @@ namespace Gamesstarter
                 CommonTools.Exit();
                 return;
             }
+            if (File.Exists(GameConfig.LocaGameAppInfo))
+            {
+                File.Decrypt(GameConfig.LocaGameAppInfo);
+            }
+            File.Move(GameConfig.GameAppInfo, GameConfig.LocaGameAppInfo);
             if (GameConfig.DelZipAfterUnzip)
             {
                 File.Delete(zipFile);

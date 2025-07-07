@@ -28,7 +28,8 @@ namespace Gamesstarter
         public static string GameSavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win");
         public static string GameExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win/Frxx.exe");
         public static string GameExeLnkPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), AppName + ".lnk");
-        public static string LocaGameAppInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win/AppInfo.json");
+        public static string LocaGameAppInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/AppInfo.json");
+        public static string GameAppInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win/AppInfo.json");
         public const string newAppVerUrl = "http://taigu-360-self-cdn.cyygame.cn/game/tgsw3/qq/packages/qk/newAppInfo.json";
         public const int ProgressOfStartUp = 10;
         public const int ProgressOfDLZip = 60;
