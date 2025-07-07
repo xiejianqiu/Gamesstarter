@@ -25,7 +25,7 @@ namespace Gamesstarter
 #elif FRXX_XINGDIE
         public const string LOGIN_URL = "https://www.ufojoy.com/pc/index.phtml?game=frxx";
 #elif FRXX_YILING
-        public const string LOGIN_URL = "https://pay.10hud.com/pay/wdpay/blgame/361";
+        public const string LOGIN_URL = "http://frxx.10hud.com/logger";
 #elif FRXX_45YX
         public const string LOGIN_URL = "https://www.45yx.com/client/login/1254?w=590&h=480&t=2";
 #elif FRXX_DY1
@@ -56,6 +56,13 @@ namespace Gamesstarter
             {
                 return LOGIN_URL;
             }
+        }
+        public static bool IsShunWang()
+        {
+#if FRXX_SHUNGWANG
+            return true;
+#endif
+            return false;
         }
     }
 }
