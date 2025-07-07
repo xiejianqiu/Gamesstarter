@@ -57,12 +57,5 @@ namespace Gamesstarter
                 return LOGIN_URL;
             }
         }
-        public static bool IsShunWang()
-        {
-#if FRXX_SHUNGWANG
-            return true;
-#endif
-            return false;
-        }
     }
 }
