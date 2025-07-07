@@ -145,6 +145,10 @@ namespace Gamesstarter
             {
                 Directory.Delete(gamePath, true);
             }
+            if (File.Exists(GameConfig.LocaGameAppInfo))
+            {
+                File.Delete(GameConfig.LocaGameAppInfo);
+            }
             Installer.UnZip(zipFile, gamePath, OnUnzipProgresssHandler, OnUnzipAppResult);
         }
         void OnUnzipProgresssHandler(float progress)
@@ -162,7 +166,7 @@ namespace Gamesstarter
             }
             if (File.Exists(GameConfig.LocaGameAppInfo))
             {
-                File.Decrypt(GameConfig.LocaGameAppInfo);
+                File.Delete(GameConfig.LocaGameAppInfo);
             }
             File.Move(GameConfig.GameAppInfo, GameConfig.LocaGameAppInfo);
             if (GameConfig.DelZipAfterUnzip)
