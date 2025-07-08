@@ -64,7 +64,12 @@ namespace Gamesstarter
                 {
                     dictionary["uid"] = dictionary["account"];
                     dictionary["server_num"] = dictionary["sid"];
+                    if (GameConfig.Is4YX())
+                    {
+                        dictionary["platform"] = "4yx";
+                    }
                 }
+                
                 if (dictionary.ContainsKey("server_num") && dictionary.ContainsKey("uid") && dictionary.ContainsKey("platform"))
                 {
                     StringBuilder builder = new StringBuilder();
