@@ -26,6 +26,7 @@ namespace Gamesstarter
         {
             LogTool.Instance.Info($"ChannelLoginWindow");
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.WBroswer.Navigated += OnWebBrowserNavigated;
             LoadWebPage(GameConfig.CHANNEL_LOGIN_URL);
         }

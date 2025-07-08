@@ -17,6 +17,7 @@ namespace Gamesstarter
         public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Init();
             Loaded += (f, s) =>
             {
