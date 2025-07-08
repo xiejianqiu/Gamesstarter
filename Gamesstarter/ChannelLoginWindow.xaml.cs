@@ -95,5 +95,10 @@ namespace Gamesstarter
         {
             this.WBroswer.Navigate(new Uri(url));
         }
+
+        private void OnCloseBtnClick(object sender, RoutedEventArgs e)
+        {
+            CommonTools.Exit();
+        }
     }
 }
