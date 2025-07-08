@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gamesstarter"
         mc:Ignorable="d"
-        Title="凡人修仙"  Width="590" Height="480" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        Title="凡人修仙"  Width="1281" Height="805" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
     <Grid>
-        <WebBrowser x:Name="WBroswer" HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+        <Grid.Background>
+            <ImageBrush>
+                <ImageBrush.ImageSource>/loginui.png</ImageBrush.ImageSource>
+            </ImageBrush>
+        </Grid.Background>
+        <WebBrowser x:Name="WBroswer" HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="590" Height="480" VerticalAlignment="Bottom" Margin="95,0,0,73"/>
 
     </Grid>
 </Window>

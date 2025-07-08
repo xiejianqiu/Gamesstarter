@@ -20,5 +20,7 @@
   <ItemGroup>
     <Resource Include="background.png" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Resource Include="loginui.png" />
+  </ItemGroup>
 </Project>
