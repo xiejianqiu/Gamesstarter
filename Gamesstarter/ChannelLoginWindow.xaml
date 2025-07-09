@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gamesstarter"
         mc:Ignorable="d"
-        Title="凡人修仙"  Width="1262" Height="805" WindowStyle="None"  ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" MaxWidth="1281" MaxHeight="805" MinWidth="1281" MinHeight="805">
+        ResizeMode="CanMinimize" Background="Transparent" WindowStyle="None"
+        Title="凡人修仙" Width="1262" Height="805" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxWidth="1281" MaxHeight="805" MinWidth="1281" MinHeight="805">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="-1"/>
+    </WindowChrome.WindowChrome>
     <Grid>
         <Grid.Background>
             <ImageBrush>
