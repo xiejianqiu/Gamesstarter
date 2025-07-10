@@ -34,6 +34,7 @@ namespace Gamesstarter
 
             this.WBroswer.Navigated += OnWebBrowserNavigated;
             LoadWebPage(GameConfig.CHANNEL_LOGIN_URL);
+            LogTool.Instance.Info(GameConfig.AppCachePath);
         }
 
         private void OnWebBrowserNavigated(object sender, NavigationEventArgs avg)

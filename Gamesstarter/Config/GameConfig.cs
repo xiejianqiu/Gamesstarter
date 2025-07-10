@@ -1,9 +1,19 @@
 ﻿using System;
 using System.IO;
-
+using TinyJson;
+using Tools;
 
 namespace Gamesstarter
 {
+    public class CacheFile
+    {
+        public string dataPath;
+
+        public CacheFile(string dataPath)
+        {
+            this.dataPath = dataPath;
+        }
+    }
     public class Localver
     {
         public string version;
@@ -18,22 +28,62 @@ namespace Gamesstarter
     }
     public partial class GameConfig
     {
+        public static string AppCachePath
+        {
+            get {
+                var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"Frxx");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                return path;
+            }
+        }
+        private static string CacheFile
+        {
+            get
+            {
+                return Path.Combine(AppCachePath, "cache.txt");
+            }
+        }
         /// <summary>
         /// 解压完是否删除压缩包
         /// </summary>
         public static bool DelZipAfterUnzip = true;
         public static string AppName = "凡人修仙";
-        private static string GamePath
+        public const string GameFolderName = "Frxx";
+        private static string GameDataPath
         {
             get
             {
-                if (GameConfig.IsSW())
+                if (File.Exists(GameConfig.CacheFile))
                 {
-                    return Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+                    try
+                    {
+                        var jsonStr = File.ReadAllText(GameConfig.CacheFile, System.Text.Encoding.UTF8);
+                        var cacheFile = jsonStr.FromJson<CacheFile>();
+                        return cacheFile.dataPath;
+                    }
+                    catch (Exception e)
+                    {
+                        LogTool.Instance.Error(e.ToString());
+                    }
                 }
-                else
                 {
-                    return Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+                    var DataPath = string.Empty;
+                    if (GameConfig.IsSW())
+                    {
+                        DataPath = Path.Combine(Environment.CurrentDirectory, GameFolderName);
+                    }
+                    else
+                    {
+                        DataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), GameFolderName);
+                    }
+
+                    CacheFile file = new CacheFile(DataPath);
+                    var json = file.ToJson();
+                    File.WriteAllText(GameConfig.CacheFile, json, System.Text.Encoding.UTF8);
+                    return DataPath;
                 }
             }
 
@@ -41,19 +91,19 @@ namespace Gamesstarter
         public static string GameRoot
         {
             get {
-                return Path.Combine(GameConfig.GamePath, "Frxx");
+                return GameConfig.GameDataPath;
             }
         }
         public static string GameSavePath
         {
             get {
-                return Path.Combine(GameConfig.GamePath, "Frxx/Win");
+                return Path.Combine(GameConfig.GameDataPath, "Win");
             }
         }
         public static string GameExe {
             get
             {
-                return Path.Combine(GameConfig.GamePath, "Frxx/Win/Frxx.exe");
+                return Path.Combine(GameConfig.GameDataPath, "Win/Frxx.exe");
             }
         }
         public static string GameExeLnkPath {
@@ -65,14 +115,14 @@ namespace Gamesstarter
         {
             get
             {
-                return Path.Combine(GameConfig.GamePath, "Frxx/AppInfo.json");
+                return Path.Combine(GameConfig.GameDataPath, "AppInfo.json");
             }
 
         }
         public static string GameAppInfo {
 
             get {
-                return Path.Combine(GameConfig.GamePath, "Frxx/Win/AppInfo.json");
+                return Path.Combine(GameConfig.GameDataPath, "Win/AppInfo.json");
             }
         }
         public const string newAppVerUrl = "http://taigu-360-self-cdn.cyygame.cn/game/tgsw3/qq/packages/qk/newAppInfo.json";
