@@ -23,13 +23,58 @@ namespace Gamesstarter
         /// </summary>
         public static bool DelZipAfterUnzip = true;
         public static string AppName = "凡人修仙";
-        public static string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "newAppInfo.json");
-        public static string GameRoot = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx");
-        public static string GameSavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win");
-        public static string GameExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win/Frxx.exe");
-        public static string GameExeLnkPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), AppName + ".lnk");
-        public static string LocaGameAppInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/AppInfo.json");
-        public static string GameAppInfo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Frxx/Win/AppInfo.json");
+        private static string GamePath
+        {
+            get
+            {
+                if (GameConfig.IsSW())
+                {
+                    return Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+                }
+                else
+                {
+                    return Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+                }
+            }
+
+        }
+        public static string GameRoot
+        {
+            get {
+                return Path.Combine(GameConfig.GamePath, "Frxx");
+            }
+        }
+        public static string GameSavePath
+        {
+            get {
+                return Path.Combine(GameConfig.GamePath, "Frxx/Win");
+            }
+        }
+        public static string GameExe {
+            get
+            {
+                return Path.Combine(GameConfig.GamePath, "Frxx/Win/Frxx.exe");
+            }
+        }
+        public static string GameExeLnkPath {
+            get {
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), AppName + ".lnk");
+            }
+        }
+        public static string LocaGameAppInfo
+        {
+            get
+            {
+                return Path.Combine(GameConfig.GamePath, "Frxx/AppInfo.json");
+            }
+
+        }
+        public static string GameAppInfo {
+
+            get {
+                return Path.Combine(GameConfig.GamePath, "Frxx/Win/AppInfo.json");
+            }
+        }
         public const string newAppVerUrl = "http://taigu-360-self-cdn.cyygame.cn/game/tgsw3/qq/packages/qk/newAppInfo.json";
         public const int ProgressOfStartUp = 10;
         public const int ProgressOfDLZip = 60;

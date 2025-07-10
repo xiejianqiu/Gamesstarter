@@ -47,7 +47,7 @@ namespace Gamesstarter
 #elif FRXX_AQY
         public const string LOGIN_URL = "";
 #else
-        public const string LOGIN_URL = "http://www.youxilifang.com/min/frxx";
+        public const string LOGIN_URL = "https://gamesite.swjoy.com/embed/5852";
 
 #endif
         public static string CHANNEL_LOGIN_URL
@@ -60,6 +60,17 @@ namespace Gamesstarter
         public static bool Is4YX()
         {
 #if FRXX_4YX
+            return true;
+#endif
+            return false;
+        }
+        /// <summary>
+        /// 顺网
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsSW()
+        {
+#if FRXX_SHUNGWANG
             return true;
 #endif
             return false;
