@@ -66,7 +66,7 @@ namespace Gamesstarter
                     }
                     catch (Exception e)
                     {
-                        LogTool.Instance.Error(e.ToString());
+                        //LogTool.Instance.Error(e.ToString());
                     }
                 }
                 {
