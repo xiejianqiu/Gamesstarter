@@ -42,12 +42,14 @@ namespace Gamesstarter
         public const string LOGIN_URL = "https://gamesite.swjoy.com/embed/5852";
 #elif FRXX_4YX
         public const string LOGIN_URL = "http://www.youxilifang.com/min/frxx";
+#elif FRXX_BBJ
+        public const string LOGIN_URL = "http://frxx.g1.10hud.com/logger";//和yiling一样的参数
 #elif FRXX_FLASH
         public const string LOGIN_URL = "";
 #elif FRXX_AQY
         public const string LOGIN_URL = "";
 #else
-        public const string LOGIN_URL = "https://gamesite.swjoy.com/embed/5852";
+        public const string LOGIN_URL = "http://frxx.g1.10hud.com/logger";
 
 #endif
         public static string CHANNEL_LOGIN_URL
