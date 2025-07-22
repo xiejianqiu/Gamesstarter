@@ -28,6 +28,8 @@ namespace Gamesstarter
         public const string LOGIN_URL = "http://frxx.10hud.com/logger";
 #elif FRXX_45YX
         public const string LOGIN_URL = "https://www.45yx.com/client/login/1254?w=590&h=480&t=2";
+#elif FRXX_45YX_160
+        public const string LOGIN_URL = "http://play.160sh.com/wd/frxx/index.htm";
 #elif FRXX_DY1
         public const string LOGIN_URL = "http://play.no1yx.com/wd/wd-frxx/index.htm";
 #elif FRXX_DY2
@@ -49,7 +51,7 @@ namespace Gamesstarter
 #elif FRXX_AQY
         public const string LOGIN_URL = "";
 #else
-        public const string LOGIN_URL = "http://frxx.g1.10hud.com/logger";
+        public const string LOGIN_URL = "https://gamesite.swjoy.com/embed/5852";
 
 #endif
         public static string CHANNEL_LOGIN_URL
